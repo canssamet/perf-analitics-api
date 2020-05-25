@@ -16,7 +16,9 @@ const perfSchema = new mongoose.Schema({
 });
 
 perfSchema.static('last30Day', () => {
-  return mongoose.model('perfModel').find()
+  var last30days = new Date();
+  last30days.setDate(last30days.getDate() - 30);
+  return mongoose.model('perfModel').find({"createDate": {"$gte": last30days}})
 });
 
 perfSchema.static('savePerf', (data) => {
