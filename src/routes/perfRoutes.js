@@ -1,12 +1,12 @@
 import express from 'express';
-import * as perfController from '../controllers/perfController.js';
+import * as performanceController from '../controllers/performanceController.js';
 
 const routes = new express.Router();
   
-const last30Minute = perfController.last30Minute
-const savePerfData = perfController.savePerfData
+const getLast30Minute = performanceController.getLast30Minute
+const savePerfData = performanceController.savePerfData
 
-routes.get('/',last30Minute);
+routes.get('/',getLast30Minute);
 routes.post('/',savePerfData);
 
 export default routes;

@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: performance-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    depends_on: 
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    container_name: performance-db-mongo    
+    restart: unless-stopped
+    ports:
+      - "27018:27017"

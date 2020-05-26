@@ -15,7 +15,7 @@ const perfSchema = new mongoose.Schema({
   ],
 });
 
-perfSchema.static('last30Minute', () => {
+perfSchema.static('getLast30Minute', () => {
  return getLast30Minutes()
 });
 
@@ -31,9 +31,9 @@ perfSchema.static('savePerf', (data) => {
 });
 
 const getLast30Minutes = ()=>{
-  var last30Minute = new Date();
-  last30Minute.setMinutes(last30Minute.getMinutes() - 30);
-  return mongoose.model('perfModel').find({"createDate": {"$gte": last30Minute}})
+  var getLast30Minute = new Date();
+  getLast30Minute.setMinutes(getLast30Minute.getMinutes() - 30);
+  return mongoose.model('perfModel').find({"createDate": {"$gte": getLast30Minute}})
 }
 
 let perfModel;
