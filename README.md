@@ -1,11 +1,26 @@
--Docker Api
-docker-compose build
-docker-compose up -d
+# NODEJS + EXPRESSJS + MONGO + DOCKER 
 
-You have to check server for working or not working?
+<hr>
+
+## How to start ?
+
+Run using Docker Compose
+
+```
+$ docker-compose build
+$ docker-compose up -d
+```
+### Best Practices
+You can get performance data in the last 30 minutes
+```
 (GET) http://localhost:8000/api/pref 
+```
+You can save performance data
+```
 (POST) http://localhost:8000/api/pref 
-Post Data
+```
+Use this model
+```
 {
   ttfb: Number,
   fcp: Number,
@@ -20,3 +35,5 @@ Post Data
     },
   ],
 }
+```
+ 
