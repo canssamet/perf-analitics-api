@@ -1,9 +1,9 @@
 import HTTPStatus from 'http-status';
 import perfModel from '../models/performanceModel.js';
 
-export async function last30Day(req, res, next) {
+export async function last30Minute(req, res, next) {
   try {
-    const perfData = await perfModel.last30Day()
+    const perfData = await perfModel.last30Minute()
     console.log(perfData)
     return res.status(HTTPStatus.OK).json(perfData);
   } catch (err) {
